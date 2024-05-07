@@ -33,7 +33,7 @@ it provides to the reading part of the input file. The function splitted in two 
 
 The function 
 ```py
-def single_file_directory().
+def single_file_directory():
   ...
 ```
 it provides to create a directory named with the header of the FASTA file and save it inside the the source directory previously created.
