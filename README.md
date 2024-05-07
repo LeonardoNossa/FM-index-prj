@@ -31,16 +31,12 @@ def readFile():
 ```
 it provides to the reading part of the input file. The function splitted in two part: the first one corresponds to the fact that the executor has the FASTA file on his computer; the second one corresponds to the fact that the executor doesn't have the FASTA file, but he has the NCBI code of the sequence (so he thanks to the API he can use the code to take the FASTA file)
 
-![](/Users/leonardonossa/Desktop/immagine fasta.png)
-
 The function 
 ```py
 def single_file_directory().
   ...
 ```
 it provides to create a directory named with the header of the FASTA file and save it inside the the source directory previously created.
-
-![](/Users/leonardonossa/Desktop/Untitled Workspace.png)
 
 The function provides to obtain the data for create a dataframe. 
 ```py
@@ -63,8 +59,6 @@ def BWTransform():
 ```
 it provides to do the borrows wheeler transform of the FASTA file. Rearranges a character string into runs of similar characters. This is useful for compression! More importantly, the transformation is reversible, without needing to store any additional data except the position of the first original character. The BWT is thus a "free" method of improving the efficiency of text compression algorithms, costing only some extra computation.
 The transform is done by sorting all the circular shifts of a text in lexicographic order and by extracting the last column and the index of the original string in the set of sorted permutations of the start text.
-
-![](/Users/leonardonossa/Desktop/Screenshot 2024-05-07 alle 11.23.32.png)
 
 The function
 ```py
@@ -114,7 +108,6 @@ def DNA_plot():
   ...
 ```
 provides for tracing the patterns found along the entire length of the sequence.
-![](/Users/leonardonossa/Desktop/ATG find sequence.png)
 
 The function
 ```py
