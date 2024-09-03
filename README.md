@@ -2,6 +2,39 @@
 
 This is a script that do the FM index referring to a file FASTA (DNA or RNA).
 
+To have a complete view I also define the command line arguments here:
+
+- sys.arg[0] --> path/of/FMindexCode
+- sys.arg[1] --> type of read function (the difference depends on if you have or not the file)
+  - 1 if it's your file
+  - 2 if you have the NCBI code
+- sys.arg[2] --> path/of/FASTAsequence or the NCBI code (depends on the previously argument)
+- sys.arg[3] --> method full or personalized 
+  - full, if you want the full sequence
+  - personalized, if you want a specific region
+- sys.arg[4] --> the start of the region (only if you choose personalized)
+- sys.arg[5] --> the stop of the region (only if you choose personalized)
+- sys.arg[6:] --> the patterns
+
+Arguments from 0 to 3 are mandatory (if you choose the personalized method, 4 and 5 are also mandatory)
+
+The program must be run from the terminal (here some example of how run it):
+
+Windows:
+```bash
+python path/of/FMindexCode 1 path/of/FASTAsequence full atg ggg cgtg
+
+python path/of/FMindexCode 2 NG_005346.1 personalized 0 250 ggggg
+```
+
+macOS:
+
+```bash
+python3 path/of/FMindexCode 1 path/of/FASTAsequence full atg ggg cgtg
+
+python3 path/of/FMindexCode 2 NG_005346.1 personalized 0 250 ggggg
+```
+
 Below there are a short descriptions of all the function created.
 
 This is the class that contain all the functions
@@ -9,13 +42,6 @@ This is the class that contain all the functions
 class FM_index():
   ...
 ```
-
-The function
-```py
-def rules():
-  ...
-```
-it provides to print on terminal the main rules for correctly use the script.
 
 The function 
 ```py
@@ -29,7 +55,7 @@ The function
 def readFile():
   ...
 ```
-it provides to the reading part of the input file. The function splitted in two part: the first one corresponds to the fact that the executor has the FASTA file on his computer; the second one corresponds to the fact that the executor doesn't have the FASTA file, but he has the NCBI code of the sequence (so he thanks to the API he can use the code to take the FASTA file)
+it provides to the reading part of the input file. The function splitted in two part: the first one corresponds to the fact that the executor has the FASTA file on his computer; the second one corresponds to the fact that the executor doesn't have the FASTA file, but he has the NCBI code of the sequence (so thanks to the API he can use the code to take the FASTA file)
 
 The function 
 ```py
@@ -38,19 +64,11 @@ def single_file_directory():
 ```
 it provides to create a directory named with the header of the FASTA file and save it inside the the source directory previously created.
 
-The function provides to obtain the data for create a dataframe. 
 ```py
 def suffix_array():
   ...
 ```
 The suffix is a sorted array (SA) of all suffixes of a string. It is a simple space efficient alternative to suffix trees.
-
-The function
-```py
-def LCPArray():
-  ...
-```
-it provides to create the longest common prefixes array (LCPA). It is an auxiliary data structure to the suffix array. It stores the lengths of the longest common prefixes (LCPs) between all pairs of consecutive suffixes in a sorted suffix array.
 
 The function
 ```py
@@ -79,28 +97,21 @@ The function
 def pattern_input():
   ...
 ```
-it provides to take as input a list of pattern that the executor wants search inside the FASTA sequence.
-
-The function
-```py
-def binary_search_for_pattern():
-  ...
-```
-is a normal binary search method which allows to find the first index (position) of the pattern inside the sequence and also can allows to find all the indexes (positions) of the pattern.
+it provides to take as input patterns that the executor wants search inside the FASTA sequence.
 
 The function
 ```py
 def backward_search_for_pattern():
   ...
 ```
-using the structure previously created it provides to calculate the number of occurrences of the pattern inside the sequence.
+using the structures previously created it provides to calculate the number of occurrences of the pattern inside the sequence, allows to find the first index (position) of the pattern inside the sequence and also can allows to find all the indexes (positions) of the pattern.
 
 The function
 ```py
 def final_results():
   ...
 ```
-it provides to take the output of the functions binary search and backward search and stores them in a dataframe.
+it provides to take the output of the function backward search and stores them in a dataframe.
 
 The function
 ```py
