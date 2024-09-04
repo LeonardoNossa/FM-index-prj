@@ -2,8 +2,8 @@
 # Year:                                      2023/2024
 # Python project                             N.6 FM Index
 # Python version                             3.11.9
-# Author                                     Nossa Leonardo
-# GitHub URL                                 https://github.com/LeonardoNossa/FM-index-prj
+# Author:                                    Nossa Leonardo
+# URL                                        https://github.com/LeonardoNossa/FM-index-prj
 
 #!/usr/bin/env python3 
 
@@ -200,16 +200,16 @@ class FM_index():
         if self.header is not None:
             fasta_dir = os.path.join(self.directory, self.header[1:].replace(":", "_"))
         else:
-            fasta_dir = os.path.join(self.directory, sys.argv[2])
+            fasta_dir = os.path.join(self.directory, os.path.splitext(os.path.basename(sys.argv[2]))[0])
 
         if sys.argv[3] == "personalized":
             start = sys.argv[4]
             stop = sys.argv[5]
-            fasta_dir = os.path.join(self.directory, f"{self.header[1:].split(':')[0]}_{start}_{stop}")
-    
+            fasta_dir = os.path.join(self.directory, f"{os.path.splitext(os.path.basename(sys.argv[2]))[0]}_{start}_{stop}")  
+
         if not os.path.exists(fasta_dir):
             os.mkdir(fasta_dir)
-        
+    
         return fasta_dir
     
     def SuffixArray(self):
