@@ -4,7 +4,7 @@ This is a script that do the FM index referring to a file FASTA (DNA or RNA).
 
 To install dependencies:
 ```bash
-pip install requests pandas numpy matplotlib time progessbar2 textwrap
+pip install requests pandas numpy matplotlib progressbar2
 ```
 
 To have a complete view I also define the command line arguments here:
