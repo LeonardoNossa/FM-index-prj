@@ -2,6 +2,11 @@
 
 This is a script that do the FM index referring to a file FASTA (DNA or RNA).
 
+To install dependencies:
+```bash
+pip install requests pandas numpy matplotlib time progessbar2 textwrap
+```
+
 To have a complete view I also define the command line arguments here:
 
 - sys.arg[0] --> path/of/FMindexCode
